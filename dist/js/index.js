@@ -7,22 +7,50 @@ var control;//控制索引
 var timer;
 //取到数据，渲染页面
 function getData(url) {
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: function (data) {
+    // $.ajax({
+    //     type: "GET",
+    //     url: url,
+    //     success: function (data) {
             bindEvent();
             bindTouch();
-            dataList = data;
-            len = data.length;
-            root.render(data[0]);
+            dataList = [
+                {
+                    "image": "./source/song_1.jpg",
+                    "audio": "./source/song_1.mp3",
+                    "song": "丑八怪",
+                    "album": "意外",
+                    "singer": "薛之谦",
+                    "duration": 253,
+                    "isLike": true
+                },
+                {
+                    "image": "./source/song_2.jpg",
+                    "audio": "./source/song_2.mp3",
+                    "song": "小半",
+                    "album": "小梦大半",
+                    "singer": "陈粒",
+                    "duration": 297,
+                    "isLike": false
+                },
+                {
+                    "image": "./source/song_3.jpg",
+                    "audio": "./source/song_3.mp3",
+                    "song": "Shape of You",
+                    "album": "÷",
+                    "singer": "ed sheeran",
+                    "duration": 235,
+                    "isLike": false
+                }
+            ];
+            len = dataList.length;
+            root.render(dataList[0]);
             control = new root.ControlIndex(len);
             $scope.trigger("play:change", 0);
-        },
-        error: function () {
-            console.log("error");
-        }
-    })
+        // },
+        // error: function () {
+        //     console.log("error");
+        // }
+    // })
 }
 //实现拖拽
 function bindTouch() {
@@ -45,7 +73,7 @@ function bindTouch() {
         //防止用户猛拉
         if (per < 0) {
             //上一首
-            $scope.find('.prev').trigger('click');            
+            $scope.find('.prev').trigger('click');
         } else if (per > 1) {
             //继续放下一首
             $scope.find('.next').trigger('click');

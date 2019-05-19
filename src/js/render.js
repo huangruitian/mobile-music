@@ -2,6 +2,7 @@
     //实现整个页面渲染
     //模块化，封闭作用域,把root暴露出去
     function renderImg(src){
+        console.log(src)
         var img = new Image();
         img.src = src;
         img.onload = function(){
@@ -30,6 +31,7 @@
     }
     
     root.render = function(data){
+        console.log(data.image)
         renderImg(data.image);
         renderInfo(data);
         renderIsLike(data.isLike);
