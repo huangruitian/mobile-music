@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    body{
+        font-size: 12px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center; 
+        .wrapper{
+           //利用IE的合模型让盒子还是100%
+           width: 100vw;
+           height: 100vh;
+           padding-top: 60px;
+           box-sizing: border-box;
+           background-color: rgba(0, 0, 0, 0.2);
+           //自适应正方形，pingding是根据父级的高度来设置的
+           .song-img{
+              position: relative;
+              width: 70%;
+              height: 0;
+              padding-top: 70%;
+            //   border: 1px solid black;
+              margin: 0 auto;
+             //利用absolute根据父元素定位，四个方向为0扯大              
+              .img-box{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  bottom: 0;
+                  right: 0;
+                  border-radius:50%; 
+                  background: black;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  img{
+                      width: 75%;
+                      height: 75%;
+                      border-radius:50%; 
+                  }
+              }
+           }
+           .song-info{
+            height: 126px;
+            width : 100%;
+            text-align: center;
+            margin-top : 40px;
+    
+            .song-name{
+                font-size: 24px;
+                line-height: 36px;
+                color : rgba(255,255,255,.86);
+                margin-bottom: 8px;
+    
+            }
+            .singer-name,.album-name{
+                font-size: 12px;
+                line-height: 16px;
+                color : rgba(255,255,255,.6);
+                margin-top:6px;
+            }
+           }
+           .pro{
+               display: flex;
+              .cur-time,
+              .all-time{
+                 width: 60px;
+                 height: 40px;
+                //  border: 1px solid black;
+                 color: #ffffff;
+                 text-align: center;
+                 line-height: 40px;
+              }
+              .pro-wrap{
+                flex : 1;
+                position: relative;
+                overflow: hidden;
+                padding-left : 3px;
+                padding-right: 3px;
+                .pro-bottom,.pro-top{
+                    position: absolute;
+                    top : 20px;
+                    height: 1px;
+                    width: 100%;
+                }
+                .pro-bottom{
+                    background-color : #ffffff;
+                }
+                .pro-top{
+                    background-color : black;
+                    transform: translateX(-100%);
+                    position: relative;
+                    .slider-point{
+                        width: 21px;
+                        height: 21px;
+                        position: absolute;
+                        right: -10px;
+                        top : -10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &::after{
+                            content: '';
+                            display: block;
+                            height: 5px;
+                            width: 5px;
+                            background-color : #fff;
+                            border-radius: 50%;
+                        }
+                    }
+                
+                }
+              }
+           }
+           .control{
+               width: 100%;
+               height: 60px;
+               position: absolute;
+               bottom:0; 
+               background: rgba(0, 0, 0, 0.6);
+               display: flex;
+               .btn{
+                   flex: 1;
+                   height: 100%;
+                //    border: 1px solid black;
+                   background-repeat:no-repeat;
+                   background-size: 20px;
+                   background-position: center center; 
+               }
+               .like{
+                   background-image:url("../image/icon-like.png"); 
+                   &.liking{
+                       background-image:url("../image/icon-like-solid.png");    
+                   }
+               }
+               .prev{
+                   background-image:url("../image/icon-prev.png");
+               }
+               .play{
+                   background-image:url("../image/icon-play.png");
+                   &.playing{
+                       background-image:url("../image/icon-pause.png"); 
+                   }
+               }
+               .next{
+                   background-image:url("../image/icon-next.png");
+               }
+               .list{
+                   background-image:url("../image/icon-list.png");
+               }
+           }
+        }
+    }
+}
