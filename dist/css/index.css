@@ -147,3 +147,46 @@
 * body .wrapper .control .list {
   background-image: url("../image/icon-list.png");
 }
+.play-list {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  transition: -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+}
+.play-list.show {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.play-list .play-header,
+.play-list .close-btn {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+.play-list .close-btn {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.play-list .list-wrapper li {
+  padding: 10px;
+  height: 20px;
+  line-height: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.play-list .list-wrapper li h3 {
+  font-size: 14px;
+}
+.play-list .list-wrapper li h3 span {
+  font-size: 12px;
+}
+.play-list .list-wrapper li.sign h3 {
+  color: red;
+}
+.play-list .list-wrapper li.sign h3 span {
+  color: red;
+}

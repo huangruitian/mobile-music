@@ -153,3 +153,45 @@
         }
     }
 }
+.play-list{
+    position: fixed;
+    bottom: 0;
+    background-color : #fff;
+    width :100%;
+    transform: translateY(100%);
+    transition : transform 200ms ease-out;
+    &.show{
+        transform: translateY(0);
+    }
+    .play-header,.close-btn{
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+    }
+    .close-btn{
+        border-top :1px solid rgba(0,0,0,.1);
+    }
+    .list-wrapper {
+        li{
+            padding : 10px;
+            height: 20px;
+            line-height: 20px;
+            border-top :1px solid rgba(0,0,0,.1);
+            h3{
+                font-size : 14px;
+                span{
+                    font-size : 12px;
+                }
+            }
+            &.sign{
+                h3{
+                    color : red;
+                    span{
+                        color : red;
+                    }
+                }
+            }
+        }
+    }
+}

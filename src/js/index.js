@@ -13,6 +13,7 @@ function getData(url) {
         success: function (data) {
             bindEvent();
             bindTouch();
+            root.playList.renderList(data);
             dataList = data;
             len = data.length;
             root.render(data[0]);
@@ -70,7 +71,7 @@ function bindEvent() {
         audio.getAudio(dataList[index].audio);
         if (audio.status == 'play') {
             audio.play();
-            // root.pro.start(0);
+            root.pro.start(0);
             rotated(0);
         }
         root.pro.renderAllTime(dataList[index].duration);
@@ -79,12 +80,12 @@ function bindEvent() {
     });
     $('.prev').on('click', function () {
         var index = control.prev();
-        root.pro.start(0);
+        // root.pro.start(0);
         $('body').trigger("play:change", index);
     });
     $('.next').on('click', function () {
         var index = control.next();
-        root.pro.start(0);
+        // root.pro.start(0);
         $('body').trigger("play:change", index);
     });
     $('.play').on('click', function () {
@@ -104,6 +105,9 @@ function bindEvent() {
         var like = dataList[control.index].isLike;
         dataList[control.index].isLike = !like
         root.renderIsLike(dataList[control.index].isLike);
+    });
+    $('.list').on('click', function () {
+        root.playList.show(control);//传控制可以拿到索引
     })
 }
 function rotated(deg) {
