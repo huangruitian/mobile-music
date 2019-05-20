@@ -1,2 +1,2 @@
 # mobile-music
-代码在别的分支上
+代码在gh-pages分支上
